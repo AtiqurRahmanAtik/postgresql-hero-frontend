@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import NavigationBar from "@/components/shared/NavigationBar";
-import Footer from "@/components/shared/Footer";
+import { Toaster } from "react-hot-toast";
+import { AuthProvider } from "@/context/AuthContext";
+import Navbar from "@/components/shared/NavigationBar";
+
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +32,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
        
        
        <div>
-        {children}
+        <AuthProvider>
+          <Toaster position="top-right" />
+          <Navbar />
+
+         <div className="">
+          {children}
+          </div> 
+
+        </AuthProvider>
         </div> 
         </body>
         
