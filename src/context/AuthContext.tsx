@@ -41,6 +41,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         );
 
         setUser(res.data.user);
+        console.log("authcontext user : ",res.data)
       } catch (error) {
         console.log("User not authenticated");
         setUser(null);

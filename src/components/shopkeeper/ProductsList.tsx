@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Image from "next/image";
+
 
 interface Product {
   id: number;

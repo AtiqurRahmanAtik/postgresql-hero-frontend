@@ -8,7 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Navbar() {
-  const { user, logout } = useAuth();
+  const { user, loading, logout } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -66,7 +66,9 @@ export default function Navbar() {
           ))}
         </div>
 
-        {!user ? (
+        {loading ? (
+          <div className="w-10 h-10 rounded-full bg-white/10 animate-pulse" />
+        ) : !user ? (
           
           <Link  href="/login"
             className="px-5 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold text-sm hover:from-purple-700 hover:to-pink-700 transition"
